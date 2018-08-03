@@ -27,6 +27,7 @@ class AddTaskController: UIViewController {
                                                                 fatalError("Failed to create Item instance")
         }
         item.text = text
+        managedObjectContext.saveChanges()
         dismiss(animated: true, completion: nil)
     }
     
