@@ -20,7 +20,7 @@ class TodoListController: UITableViewController {
         super.viewDidLoad()
     }
 
-    // MARK: - Table view data source
+    // MARK: - TableView Data Source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 0
@@ -68,6 +68,13 @@ class TodoListController: UITableViewController {
             let navigationController = segue.destination as? UINavigationController,
             let addTaskController = navigationController.topViewController as? AddTaskController {
             addTaskController.managedObjectContext = managedObjectContext
+        } else if segue.identifier == "showDetail",
+            let detailController = segue.destination as? DetailController,
+            let indexPath = tableView.indexPathForSelectedRow {
+            let item = fetchedResultsController.object(at: indexPath)
+            
+            detailController.item = item
+            detailController.context = managedObjectContext
         }
     }
 }

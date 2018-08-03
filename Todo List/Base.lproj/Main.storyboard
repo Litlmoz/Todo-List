@@ -34,6 +34,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BrZ-5z-cTp" kind="show" identifier="showDetail" id="j23-Kx-L9K"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -95,6 +98,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wdy-7A-n8W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3343.1999999999998" y="133.74384236453201"/>
+        </scene>
+        <!--Detail Controller-->
+        <scene sceneID="hf7-I5-4pP">
+            <objects>
+                <viewController id="BrZ-5z-cTp" customClass="DetailController" customModule="Todo_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y3J-gx-KCI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pGd-EB-Wxw">
+                                <rect key="frame" x="16" y="391" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxO-1T-hqu" customClass="DetailButton" customModule="Todo_List" customModuleProvider="target">
+                                <rect key="frame" x="5" y="727" width="365" height="56"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="I98-oy-62Y"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Delete"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deleteItem:" destination="BrZ-5z-cTp" eventType="touchUpInside" id="DRy-UI-UDd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pGd-EB-Wxw" firstAttribute="centerY" secondItem="Y3J-gx-KCI" secondAttribute="centerY" id="V0L-Fl-UQF"/>
+                            <constraint firstItem="gxO-1T-hqu" firstAttribute="leading" secondItem="jNR-1m-mOa" secondAttribute="leading" constant="5" id="ZfQ-Gx-1en"/>
+                            <constraint firstItem="gxO-1T-hqu" firstAttribute="bottom" secondItem="jNR-1m-mOa" secondAttribute="bottom" constant="5" id="fJ9-E0-Cb5"/>
+                            <constraint firstItem="jNR-1m-mOa" firstAttribute="trailing" secondItem="pGd-EB-Wxw" secondAttribute="trailing" constant="16" id="fgs-ub-6At"/>
+                            <constraint firstItem="pGd-EB-Wxw" firstAttribute="leading" secondItem="jNR-1m-mOa" secondAttribute="leading" constant="16" id="rIv-LH-ite"/>
+                            <constraint firstItem="jNR-1m-mOa" firstAttribute="trailing" secondItem="gxO-1T-hqu" secondAttribute="trailing" constant="5" id="vRv-Tq-lsH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jNR-1m-mOa"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="BTV-7c-s3i">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rK2-lr-ZAV">
+                            <connections>
+                                <action selector="save:" destination="BrZ-5z-cTp" id="4w3-Ws-suS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="detailTextField" destination="pGd-EB-Wxw" id="LM5-3b-pKu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i8d-NU-xG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="938"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k3Z-yn-JId">
