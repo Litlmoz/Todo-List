@@ -7,16 +7,26 @@
 //
 
 import UIKit
+import CoreData
 
 class AddTaskController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
+    let managedObjectContext = CoreDataStack().managedObjectContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
+        guard let text = textField.text, !text.isEmpty else {
+            return
+        }
+        guard let item = NSEntityDescription.insertNewObject(forEntityName: "Item",
+                                                             into: managedObjectContext) as? Item else {
+                                                                fatalError("Failed to create Item instance")
+        }
+        item.text = text
         dismiss(animated: true, completion: nil)
     }
     
