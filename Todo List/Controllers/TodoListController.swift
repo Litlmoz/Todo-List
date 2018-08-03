@@ -39,12 +39,27 @@ class TodoListController: UITableViewController {
         return configureCell(cell, at: indexPath)
     }
     
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
+        let item = fetchedResultsController.object(at: indexPath)
+        
+        managedObjectContext.delete(item)
+        managedObjectContext.saveChanges()
+    }
+    
     private func configureCell(_ cell: UITableViewCell, at indexPath: IndexPath) -> UITableViewCell {
         let item = fetchedResultsController.object(at: indexPath)
         
         cell.textLabel?.text = item.text
         
         return cell
+    }
+    
+    // MARK: - UITableView Delegate
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
     }
     
     // MARK: - Navigation
