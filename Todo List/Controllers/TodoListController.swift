@@ -11,7 +11,7 @@ import CoreData
 
 class TodoListController: UITableViewController {
     
-    let managedObjectContext = CoreDataStack().managedObjectContext
+    let managedObjectContext = AppDelegate().managedObjectContext
     lazy var dataSource: DataSource = {
         return DataSource(tableView: tableView, context: managedObjectContext)
     }()
