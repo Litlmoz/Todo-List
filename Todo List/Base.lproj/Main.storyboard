@@ -51,7 +51,20 @@
                     <view key="view" contentMode="scaleToFill" id="f83-92-nZk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dpl-qa-ov5">
+                                <rect key="frame" x="16" y="120" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dpl-qa-ov5" firstAttribute="top" secondItem="cPj-1M-y8H" secondAttribute="top" constant="32" id="1MJ-fb-pmy"/>
+                            <constraint firstItem="Dpl-qa-ov5" firstAttribute="leading" secondItem="cPj-1M-y8H" secondAttribute="leading" constant="16" id="Tqu-73-4zt"/>
+                            <constraint firstItem="cPj-1M-y8H" firstAttribute="trailing" secondItem="Dpl-qa-ov5" secondAttribute="trailing" constant="16" id="ZY6-bJ-Emo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cPj-1M-y8H"/>
                     </view>
                     <navigationItem key="navigationItem" id="d6i-oQ-qe5">
@@ -66,6 +79,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="Dpl-qa-ov5" id="8nM-uD-Y9M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wdy-7A-n8W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
