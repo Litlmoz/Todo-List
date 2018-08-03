@@ -12,24 +12,12 @@ import CoreData
 class TodoListController: UITableViewController {
     
     let managedObjectContext = CoreDataStack().managedObjectContext
-    lazy var fetchedResultsController: NSFetchedResultsController<Item> = {
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
-        let controller = NSFetchedResultsController(fetchRequest: request,
-                                                    managedObjectContext: managedObjectContext,
-                                                    sectionNameKeyPath: nil,
-                                                    cacheName: nil)
-        return controller
+    lazy var fetchedResultsController: TodoFetchedResultsController = {
+        return TodoFetchedResultsController(managedObjectContext: managedObjectContext, tableView: tableView)
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchedResultsController.delegate = self
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError(error.localizedDescription)
-        }
     }
 
     // MARK: - Table view data source
@@ -66,12 +54,5 @@ class TodoListController: UITableViewController {
             let addTaskController = navigationController.topViewController as? AddTaskController {
             addTaskController.managedObjectContext = managedObjectContext
         }
-    }
-}
-
-extension TodoListController: NSFetchedResultsControllerDelegate {
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.reloadData()
     }
 }
