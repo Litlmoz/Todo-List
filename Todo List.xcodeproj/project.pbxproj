@@ -60,6 +60,7 @@
 		D60532202113C5DA0069F32F /* Todo List */ = {
 			isa = PBXGroup;
 			children = (
+				59D11D132113D79D0092E3DB /* CoreData */,
 				D6B15EEA2113D1F800CC178B /* Controllers */,
 				D60532252113C5DA0069F32F /* Main.storyboard */,
 				D6B15EE72113D16300CC178B /* Supporting Files */,
@@ -71,11 +72,9 @@
 			isa = PBXGroup;
 			children = (
 				D60532212113C5DA0069F32F /* AppDelegate.swift */,
-				D60532362113C7F00069F32F /* CoreDataStack.swift */,
 				D60532302113C5DB0069F32F /* Info.plist */,
 				D605322D2113C5DA0069F32F /* LaunchScreen.storyboard */,
 				D605322B2113C5DA0069F32F /* Assets.xcassets */,
-				D60532282113C5DA0069F32F /* Todo_List.xcdatamodeld */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
