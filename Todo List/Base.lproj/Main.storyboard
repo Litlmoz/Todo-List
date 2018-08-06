@@ -108,13 +108,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pGd-EB-Wxw">
-                                <rect key="frame" x="16" y="391" width="343" height="30"/>
+                                <rect key="frame" x="16" y="418" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxO-1T-hqu" customClass="DetailButton" customModule="Todo_List" customModuleProvider="target">
-                                <rect key="frame" x="5" y="727" width="365" height="56"/>
+                                <rect key="frame" x="10" y="712" width="355" height="56"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="I98-oy-62Y"/>
@@ -133,14 +133,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pGd-EB-Wxw" firstAttribute="centerY" secondItem="Y3J-gx-KCI" secondAttribute="centerY" id="V0L-Fl-UQF"/>
-                            <constraint firstItem="gxO-1T-hqu" firstAttribute="leading" secondItem="jNR-1m-mOa" secondAttribute="leading" constant="5" id="ZfQ-Gx-1en"/>
-                            <constraint firstItem="gxO-1T-hqu" firstAttribute="bottom" secondItem="jNR-1m-mOa" secondAttribute="bottom" constant="5" id="fJ9-E0-Cb5"/>
+                            <constraint firstItem="pGd-EB-Wxw" firstAttribute="centerY" secondItem="jNR-1m-mOa" secondAttribute="centerY" id="V0L-Fl-UQF"/>
+                            <constraint firstItem="gxO-1T-hqu" firstAttribute="leading" secondItem="jNR-1m-mOa" secondAttribute="leading" constant="10" id="ZfQ-Gx-1en"/>
+                            <constraint firstAttribute="bottom" secondItem="pGd-EB-Wxw" secondAttribute="bottom" constant="20" symbolic="YES" id="fBv-cP-E0L"/>
+                            <constraint firstItem="jNR-1m-mOa" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gxO-1T-hqu" secondAttribute="bottom" constant="10" id="fJ9-E0-Cb5"/>
                             <constraint firstItem="jNR-1m-mOa" firstAttribute="trailing" secondItem="pGd-EB-Wxw" secondAttribute="trailing" constant="16" id="fgs-ub-6At"/>
+                            <constraint firstAttribute="bottom" secondItem="gxO-1T-hqu" secondAttribute="bottom" priority="999" constant="10" id="jI2-eX-weO"/>
                             <constraint firstItem="pGd-EB-Wxw" firstAttribute="leading" secondItem="jNR-1m-mOa" secondAttribute="leading" constant="16" id="rIv-LH-ite"/>
-                            <constraint firstItem="jNR-1m-mOa" firstAttribute="trailing" secondItem="gxO-1T-hqu" secondAttribute="trailing" constant="5" id="vRv-Tq-lsH"/>
+                            <constraint firstItem="jNR-1m-mOa" firstAttribute="trailing" secondItem="gxO-1T-hqu" secondAttribute="trailing" constant="10" id="vRv-Tq-lsH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jNR-1m-mOa"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fBv-cP-E0L"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BTV-7c-s3i">
@@ -152,11 +159,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailTextField" destination="pGd-EB-Wxw" id="LM5-3b-pKu"/>
+                        <outlet property="textFieldBottomAnchor" destination="fBv-cP-E0L" id="dRO-WN-r1Y"/>
+                        <outlet property="textFieldCenterY" destination="V0L-Fl-UQF" id="Ut3-CY-W8E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8d-NU-xG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1609" y="938"/>
+            <point key="canvasLocation" x="1608.6206896551726" y="936.79999999999995"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k3Z-yn-JId">
