@@ -14,6 +14,8 @@ class DetailController: UIViewController {
     @IBOutlet weak var textFieldBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var textFieldCenterY: NSLayoutConstraint!
     @IBOutlet weak var detailTextField: UITextField!
+    @IBOutlet weak var isCompletedSwitch: UISwitch!
+    
     var item: Item?
     var context: NSManagedObjectContext?
     
@@ -27,8 +29,16 @@ class DetailController: UIViewController {
         super.viewWillAppear(animated)
         if let item = item {
             detailTextField.text = item.text
+            isCompletedSwitch.isOn = item.isCompleted
         }
     }
+    
+    
+    @IBAction func isCompeltedChanged(_ sender: UISwitch) {
+        if let item = item {
+            item.isCompleted = sender.isOn
+            context?.saveChanges()
+        }
     }
     
     @IBAction func save(_ sender: Any) {

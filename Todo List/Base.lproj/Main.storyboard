@@ -18,15 +18,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" textLabel="N3K-5Q-Vwi" style="IBUITableViewCellStyleDefault" id="V7j-UK-V3E">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ItemCell" textLabel="N3K-5Q-Vwi" style="IBUITableViewCellStyleDefault" id="V7j-UK-V3E">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V7j-UK-V3E" id="6DM-b4-vaP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N3K-5Q-Vwi">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="43.666666666666664"/>
+                                            <rect key="frame" x="16" y="0.0" width="319" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -151,6 +151,14 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BTV-7c-s3i">
+                        <nil key="title"/>
+                        <switch key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="mBh-Iq-VS9">
+                            <rect key="frame" x="162" y="6.6666666666666679" width="51" height="31.000000000000004"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="isCompeltedChanged:" destination="BrZ-5z-cTp" eventType="valueChanged" id="kSH-Ty-m37"/>
+                            </connections>
+                        </switch>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="rK2-lr-ZAV">
                             <connections>
                                 <action selector="save:" destination="BrZ-5z-cTp" id="4w3-Ws-suS"/>
@@ -159,6 +167,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailTextField" destination="pGd-EB-Wxw" id="LM5-3b-pKu"/>
+                        <outlet property="isCompletedSwitch" destination="mBh-Iq-VS9" id="w59-iB-Qub"/>
                         <outlet property="textFieldBottomAnchor" destination="fBv-cP-E0L" id="dRO-WN-r1Y"/>
                         <outlet property="textFieldCenterY" destination="V0L-Fl-UQF" id="Ut3-CY-W8E"/>
                     </connections>

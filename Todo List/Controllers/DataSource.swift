@@ -57,6 +57,11 @@ class DataSource: NSObject, UITableViewDataSource {
         let item = fetchedResultsController.object(at: indexPath)
         
         cell.textLabel?.text = item.text
+        if item.isCompleted {
+            cell.accessoryType = UITableViewCell.AccessoryType.checkmark
+        } else {
+            cell.accessoryType = UITableViewCell.AccessoryType.none
+        }
         
         return cell
     }
