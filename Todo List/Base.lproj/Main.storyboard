@@ -130,9 +130,16 @@
                                     <action selector="deleteItem:" destination="BrZ-5z-cTp" eventType="touchUpInside" id="DRy-UI-UDd"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xi3-Ks-Zzu">
+                                <rect key="frame" x="0.0" y="88" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ze5-I0-hG3"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Xi3-Ks-Zzu" firstAttribute="trailing" secondItem="jNR-1m-mOa" secondAttribute="trailing" id="390-On-dHI"/>
                             <constraint firstItem="pGd-EB-Wxw" firstAttribute="centerY" secondItem="jNR-1m-mOa" secondAttribute="centerY" id="V0L-Fl-UQF"/>
                             <constraint firstItem="gxO-1T-hqu" firstAttribute="leading" secondItem="jNR-1m-mOa" secondAttribute="leading" constant="10" id="ZfQ-Gx-1en"/>
                             <constraint firstAttribute="bottom" secondItem="pGd-EB-Wxw" secondAttribute="bottom" constant="20" symbolic="YES" id="fBv-cP-E0L"/>
@@ -140,6 +147,8 @@
                             <constraint firstItem="jNR-1m-mOa" firstAttribute="trailing" secondItem="pGd-EB-Wxw" secondAttribute="trailing" constant="16" id="fgs-ub-6At"/>
                             <constraint firstAttribute="bottom" secondItem="gxO-1T-hqu" secondAttribute="bottom" priority="999" constant="10" id="jI2-eX-weO"/>
                             <constraint firstItem="pGd-EB-Wxw" firstAttribute="leading" secondItem="jNR-1m-mOa" secondAttribute="leading" constant="16" id="rIv-LH-ite"/>
+                            <constraint firstItem="Xi3-Ks-Zzu" firstAttribute="leading" secondItem="jNR-1m-mOa" secondAttribute="leading" id="seb-Ts-69Y"/>
+                            <constraint firstItem="Xi3-Ks-Zzu" firstAttribute="top" secondItem="jNR-1m-mOa" secondAttribute="top" id="uEg-Y4-ncy"/>
                             <constraint firstItem="jNR-1m-mOa" firstAttribute="trailing" secondItem="gxO-1T-hqu" secondAttribute="trailing" constant="10" id="vRv-Tq-lsH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jNR-1m-mOa"/>
@@ -166,6 +175,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backgroundColorPicker" destination="Xi3-Ks-Zzu" id="WFX-pf-8c2"/>
                         <outlet property="detailTextField" destination="pGd-EB-Wxw" id="LM5-3b-pKu"/>
                         <outlet property="isCompletedSwitch" destination="mBh-Iq-VS9" id="w59-iB-Qub"/>
                         <outlet property="textFieldBottomAnchor" destination="fBv-cP-E0L" id="dRO-WN-r1Y"/>
@@ -174,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8d-NU-xG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1608.6206896551726" y="936.79999999999995"/>
+            <point key="canvasLocation" x="1606.6901408450703" y="935.625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k3Z-yn-JId">

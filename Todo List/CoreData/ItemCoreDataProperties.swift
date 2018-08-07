@@ -21,4 +21,5 @@ extension Item {
     
     @NSManaged public var text: String
     @NSManaged public var isCompleted: Bool
+    @NSManaged public var color: Data?
 }
