@@ -19,21 +19,22 @@ class DetailController: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let pickerDataSource = ["", "Green", "Blue", "Purple"]
-    var item: Item? {
-        didSet {
-            if let item = item {
-                detailTextField.text = item.text
-                isCompletedSwitch.isOn = item.isCompleted
-                selectPickerViewFor(item)
-            }
-        }
-    }
+    var item: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerForKeyboardNotifications()
         backgroundColorPicker.dataSource = self
         backgroundColorPicker.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let item = item {
+            detailTextField.text = item.text
+            isCompletedSwitch.isOn = item.isCompleted
+            selectPickerViewFor(item)
+        }
     }
     
     @IBAction func isCompeletedChanged(_ sender: UISwitch) {
