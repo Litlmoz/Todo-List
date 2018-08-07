@@ -17,20 +17,22 @@ class Item: NSManagedObject, Codable {
     
     required convenience init(from decoder: Decoder) throws {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        guard let entity = NSEntityDescription.entity(forEntityName: "Item", in: context) else { fatalError() }
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        guard let entity = NSEntityDescription.entity(forEntityName: "Item", in: context) else {
+            fatalError("Failed to intialize Item")
+        }
         
         self.init(entity: entity, insertInto: context)
         
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.text = try container.decodeIfPresent(String.self, forKey: .text) ?? ""
-        self.isCompleted = try container.decodeIfPresent(Bool.self, forKey: .isCompleted) ?? false
+        self.text = try container.decode(String.self, forKey: .text)
+        self.isCompleted = try container.decode(Bool.self, forKey: .isCompleted)
         self.color = try container.decodeIfPresent(Data.self, forKey: .color)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(text, forKey: .text)
-        try container.encodeIfPresent(isCompleted, forKey: .isCompleted)
+        try container.encode(text, forKey: .text)
+        try container.encode(isCompleted, forKey: .isCompleted)
         try container.encodeIfPresent(color, forKey: .color)
     }
     
