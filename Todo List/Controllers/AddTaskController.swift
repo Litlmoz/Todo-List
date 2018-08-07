@@ -12,7 +12,7 @@ import CoreData
 class AddTaskController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
-    var managedObjectContext: NSManagedObjectContext!
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +23,11 @@ class AddTaskController: UIViewController {
             return
         }
         guard let item = NSEntityDescription.insertNewObject(forEntityName: "Item",
-                                                             into: managedObjectContext) as? Item else {
+                                                             into: context) as? Item else {
                                                                 fatalError("Failed to create Item instance")
         }
         item.text = text
-        managedObjectContext.saveChanges()
+        context.saveChanges()
         dismiss(animated: true, completion: nil)
     }
     

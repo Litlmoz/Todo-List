@@ -10,12 +10,14 @@ import UIKit
 import CoreData
 
 class TodoFetchedResultsController: NSFetchedResultsController<Item>, NSFetchedResultsControllerDelegate {
-    private let tableView: UITableView
     
-    init(managedObjectContext: NSManagedObjectContext, tableView: UITableView) {
+    private let tableView: UITableView
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    init(tableView: UITableView) {
         self.tableView = tableView
         super.init(fetchRequest: Item.fetchRequest(),
-                   managedObjectContext: managedObjectContext,
+                   managedObjectContext: context,
                    sectionNameKeyPath: nil,
                    cacheName: nil)
         self.delegate = self

@@ -11,9 +11,8 @@ import CoreData
 
 class TodoListController: UITableViewController {
     
-    let managedObjectContext = AppDelegate().managedObjectContext
     lazy var dataSource: DataSource = {
-        return DataSource(tableView: tableView, context: managedObjectContext)
+        return DataSource(tableView: tableView)
     }()
 
     override func viewDidLoad() {
@@ -30,17 +29,12 @@ class TodoListController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "newItem",
-            let navigationController = segue.destination as? UINavigationController,
-            let addTaskController = navigationController.topViewController as? AddTaskController {
-            addTaskController.managedObjectContext = managedObjectContext
-        } else if segue.identifier == "showDetail",
+        if segue.identifier == "showDetail",
             let detailController = segue.destination as? DetailController,
             let indexPath = tableView.indexPathForSelectedRow {
             let item = dataSource.object(at: indexPath)
             
             detailController.item = item
-            detailController.context = managedObjectContext
         }
     }
 }

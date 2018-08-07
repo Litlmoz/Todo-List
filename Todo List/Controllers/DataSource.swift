@@ -10,15 +10,15 @@ import UIKit
 import CoreData
 
 class DataSource: NSObject, UITableViewDataSource {
+    
     private let tableView: UITableView
-    private let context: NSManagedObjectContext
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     lazy var fetchedResultsController: TodoFetchedResultsController = {
-        return TodoFetchedResultsController(managedObjectContext: context, tableView: tableView)
+        return TodoFetchedResultsController(tableView: tableView)
     }()
     
-    init(tableView: UITableView, context: NSManagedObjectContext) {
+    init(tableView: UITableView) {
         self.tableView = tableView
-        self.context = context
     }
     
     func object(at indexPath: IndexPath) -> Item {
