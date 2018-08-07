@@ -29,12 +29,16 @@ extension DetailController: UIPickerViewDataSource, UIPickerViewDelegate {
             switch pickerDataSource[row] {
             case "Green":
                 item?.color = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1).encode()
+                view.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
             case "Blue":
                 item?.color = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1).encode()
+                view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
             case "Purple":
                 item?.color = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1).encode()
+                view.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
             case "":
                 item?.color = nil
+                view.backgroundColor = .white
             default:
                 break
             }
