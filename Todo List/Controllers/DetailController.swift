@@ -17,18 +17,18 @@ class DetailController: UIViewController {
     @IBOutlet weak var isCompletedSwitch: UISwitch!
     
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var item: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerForKeyboardNotifications()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let item = item {
-            detailTextField.text = item.text
-            isCompletedSwitch.isOn = item.isCompleted
+    var item: Item? {
+        didSet {
+            if let item = item {
+                detailTextField.text = item.text
+                isCompletedSwitch.isOn = item.isCompleted
+            }
         }
     }
     
