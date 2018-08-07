@@ -33,7 +33,7 @@ class DetailController: UIViewController {
     }
     
     
-    @IBAction func isCompeltedChanged(_ sender: UISwitch) {
+    @IBAction func isCompeletedChanged(_ sender: UISwitch) {
         if let item = item {
             item.isCompleted = sender.isOn
             context.saveChanges()
