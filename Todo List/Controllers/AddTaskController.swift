@@ -13,13 +13,12 @@ class AddTaskController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
+        let context = CoreDataStack.sharedInstance.context
         guard let text = textField.text, !text.isEmpty else {
             return
         }

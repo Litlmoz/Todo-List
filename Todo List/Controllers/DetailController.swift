@@ -17,7 +17,7 @@ class DetailController: UIViewController {
     @IBOutlet weak var isCompletedSwitch: UISwitch!
     @IBOutlet weak var backgroundColorPicker: UIPickerView!
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = CoreDataStack.sharedInstance.context
     let pickerDataSource = ["", "Green", "Blue", "Purple"]
     var item: Item?
     

@@ -11,12 +11,12 @@ import CoreData
 
 class Item: NSManagedObject, Codable {
     
-    @NSManaged public var text: String
-    @NSManaged public var isCompleted: Bool
-    @NSManaged public var color: Data?
+    @NSManaged var text: String
+    @NSManaged var isCompleted: Bool
+    @NSManaged var color: Data?
     
     required convenience init(from decoder: Decoder) throws {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let context = CoreDataStack.sharedInstance.context
         let container = try decoder.container(keyedBy: CodingKeys.self)
         guard let entity = NSEntityDescription.entity(forEntityName: "Item", in: context) else {
             fatalError("Failed to intialize Item")

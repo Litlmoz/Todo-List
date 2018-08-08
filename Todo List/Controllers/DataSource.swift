@@ -12,7 +12,6 @@ import CoreData
 class DataSource: NSObject, UITableViewDataSource {
     
     private let tableView: UITableView
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     lazy var fetchedResultsController: TodoFetchedResultsController = {
         return TodoFetchedResultsController(tableView: tableView)
     }()
@@ -47,6 +46,7 @@ class DataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle,
                             forRowAt indexPath: IndexPath) {
+        let context = CoreDataStack.sharedInstance.context
         let item = fetchedResultsController.object(at: indexPath)
         
         context.delete(item)
